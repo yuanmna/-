@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <!-- 访问vm实例上的属性 -->
+    <button @click="handleclick">点击了{{count}}次</button>
+    <!-- 指令表达式写法，可以不用this或vm访问 -->
+    <!-- <button @click="count++">点击了{{count}}次</button> -->
+</div>
+<script>
+    const {createApp} = Vue 
+
+    const vm =createApp({
+        data(){
+         return{
+            count:0,
+         }
+        },
+        methods:{
+            handleclick(){
+                console.log('我被点击了')
+                vm.count++
+                // this.count++
+            },
+        },
+    }).mount('#app')
+</script>
+</body>
+</html>
